@@ -1,0 +1,52 @@
+@import 'normalize.css';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  color: var(--darkBlue);
+  background: #fff;
+  font-size: 4vh;
+  line-height: 1.5;
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: var(--darkBlue);
+}
+
+.transparent {
+  opacity: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--darkBlue);
+  line-height: 1;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "言葉 の Tab",
+  "description": "言葉 の Tab. A chrome extension to study Japanese word in each new tab.",
+  "version": "0.1",
+  "incognito": "split",
+  "chrome_url_overrides": {
+    "newtab": "dist/index.html"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "manifest_version": 2
+}

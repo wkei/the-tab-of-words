@@ -8,3 +8,5 @@
 
 - Open `chrome://extensions/` in Chrome
 - Drag `the-tab-of-words.crx` to Chrome
+
+[Download](https://github.com/keiww/the-tab-of-words/releases/download/1.0.0/the-tab-of-words.crx) here

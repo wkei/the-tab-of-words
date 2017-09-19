@@ -2,7 +2,7 @@
 
 言葉 の Tab. A chrome extension to study Japanese words in each new tab.
 
-![](./docs/screenshot.png)
+![](./screenshot.png)
 
 ## Installation
 

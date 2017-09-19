@@ -37,11 +37,6 @@ export default {
   padding-top: 3em;
   font-size: 4.5vh;
   text-align: center;
-
-  @media (max-width: 960px) {
-    font-size: 36px;
-  }
-
   .hiragana, .romaji {
     margin: 0;
   }

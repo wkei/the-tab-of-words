@@ -7,7 +7,7 @@ body, html {
   padding-bottom: 4em;
   font: 18px/1.5 "Hiragino Mincho ProN W6", "Source Han Serif JP", "Source Han Serif", "MS Mincho", Time, serif;
   text-align: center;
-  color: #333;
+  color: #2c3e50;
 }
 
 img {
@@ -15,7 +15,7 @@ img {
 }
 
 a {
-  color: #333;
+  color: #000;
   text-decoration: none;
   outline: none;
 }

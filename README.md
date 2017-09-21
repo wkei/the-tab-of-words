@@ -1,6 +1,6 @@
 # 言葉 の Tab
 
-言葉 の Tab. A minimal Chrome extension to help you study Japanese words in each new tab.
+A minimal Chrome extension to help you study Japanese words in each new tab.
 
 ![](./docs/screenshot.png)
 
@@ -10,5 +10,3 @@
 
 - Open `chrome://extensions/` in Chrome
 - Drag `the-tab-of-words.crx` to Chrome
-
-### [Source](https://github.com/keiww/the-tab-of-words)

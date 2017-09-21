@@ -1,0 +1,85 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding-bottom: 4em;
+  font: 18px/1.5 "Hiragino Mincho ProN W6", "Source Han Serif JP", "Source Han Serif", "MS Mincho", Time, serif;
+  text-align: center;
+  color: #333;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 1em;
+}
+
+code {
+  padding: 2px 4px;
+  background: #efefef;
+  border-radius: 2px;
+  font: .9em/1.3 "Roboto Mono", "Source Code Pro", Monaco, monospace;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+h1 {
+  margin: 2em 0;
+  font-size: 3em;
+  font-weight: normal;
+}
+
+h2 {
+  margin: 1em 0;
+  font-size: 2em;
+  font-weight: normal;
+}
+
+header p {
+  margin-bottom: 5em;
+}
+
+.download {
+  position: relative;
+  display: inline-block;
+  margin: 2em auto;
+  font-size: 2em;
+  padding: 10px;
+  font-weight: bold;
+}
+.download:hover:after {
+  left: 0;
+  width: 100%;
+  color: #000;
+}
+.download:after {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 25%;
+  bottom: 0;
+  width: 50%;
+  height: 1px;
+  background: #333;
+  transition: all .3s;
+}

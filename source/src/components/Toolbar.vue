@@ -73,7 +73,7 @@ export default {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
-  font-size: 28px;
+  font-size: 3.5vh;
   user-select: none;
 
   &.hideBtns {
@@ -88,7 +88,7 @@ export default {
     color: var(--lightBlue);
     font-weight: 600;
     font-family: var(--fontSerif);
-    transition: all .3s;
+    transition: color .3s, opacity .3s;
     &.liked {
       color: var(--red);
     }

@@ -3,7 +3,7 @@
     <main class='book'>
       <transition name='fade' mode='out-in'>
         <div class='empty' v-if='!likedCards.length'>空</div>
-        <transition-group name='list' tag='ul' v-else>
+        <transition-group name='list' tag='ul' class='list' v-else>
           <li v-for='item, idx in likedCards' :key='item.uuid' class='item'>
             <div class='inner'>
               <h3 class='word'>
@@ -34,7 +34,11 @@ export default {
   computed: {
     likedCards () {
       const { likes, db } = this.store
-      return db.filter(card => likes.includes(card.uuid))
+      let likedCards = db.filter(card => likes.includes(card.uuid))
+      likedCards = likes.map(like => {
+        return likedCards.filter(card => like === card.uuid)[0]
+      })
+      return likedCards
     },
     searchUrl () {
       return `http://jisho.org/search/${this.store.card.word}`
@@ -53,16 +57,19 @@ export default {
   width: 100%;
   height: 100%;
   background: #fff;
+  overflow: hidden;
+  overflow-y: auto;
 }
 .book {
   margin: auto;
   height: 100vh;
   width: 40vw;
+  max-width: 800px;
   min-width: 420px;
-  padding: 30px;
-  overflow: hidden;
-  overflow-y: auto;
   font-size: 16px;
+  .list {
+    padding: 30px;
+  }
   .item {
     max-height: auto;
     position: relative;

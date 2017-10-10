@@ -22,7 +22,7 @@
     >
       帳
     </button>
-    <div class='bottom'>
+    <!-- <div class='bottom'>
       <button
         class='btn btn-r'
         :class='{ muted: store.showRomaji }'
@@ -31,7 +31,7 @@
       >
         R
       </button>
-    </div>
+    </div> -->
   </nav>
 </template>
 
@@ -59,8 +59,8 @@ export default {
       }
     },
     changeLevel: bus.changeLevel,
-    toggleBook: bus.toggleBook,
-    toggleRomaji: bus.toggleRomaji
+    toggleBook: bus.toggleBook
+    // ,toggleRomaji: bus.toggleRomaji
   }
 }
 </script>
@@ -77,7 +77,7 @@ export default {
   user-select: none;
 
   &.hideBtns {
-    .btn, .btn.muted {
+    .btn /*, .btn.muted*/ {
       opacity: 0;
     }
   }
@@ -92,9 +92,9 @@ export default {
     &.liked {
       color: var(--red);
     }
-    &.muted {
+    /*&.muted {
       opacity: .2;
-    }
+    }*/
     &.show {
       opacity: 1;
       color: var(--darkBlue);
@@ -106,11 +106,11 @@ export default {
     font-weight: 300;
   }
 
-  .bottom {
+  /*.bottom {
     position: fixed;
     top: auto;
     bottom: 1em;
     width: 1em;
-  }
+  }*/
 }
 </style>

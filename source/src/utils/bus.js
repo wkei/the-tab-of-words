@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import local from '@/utils/local'
+import local, { initStore } from '@/utils/local'
 import { getDB } from '@/api'
 import { randomArrEl } from '@/utils'
 
@@ -7,7 +7,7 @@ const MIN_LEVEL = 5
 
 const bus = new Vue({
   data: {
-    store: local.init()
+    store: initStore
   },
   computed: {
     filteredDB () {
@@ -19,10 +19,13 @@ const bus = new Vue({
   },
   methods: {
     init () {
-      getDB().then(db => {
-        this.store.db = db
-        this.store.loaded = true
-        this.generateCard()
+      local.init(store => {
+        getDB().then(db => {
+          store.db = db
+          store.loaded = true
+          this.store = Object.assign(this.store, store)
+          this.generateCard()
+        })
       })
     },
     generateCard () {

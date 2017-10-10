@@ -1,7 +1,7 @@
 <template>
   <div class='card'>
     <div class='meta'>
-      <p class='romaji' :class='{ transparent: store.showRomaji }'>{{card.romaji || '&nbsp;'}}</p>
+      <p class='romaji' :class='{ show: store.showRomaji }'>{{card.romaji || '&nbsp;'}}</p>
       <p class='hiragana'>{{card.hiragana || '&nbsp;'}}</p>
     </div>
     <h1 class='word'>
@@ -41,8 +41,12 @@ export default {
     margin: 0;
   }
   .romaji {
+    opacity: 0;
     font-size: .8em;
     transition: opacity .3s;
+    &.show {
+      opacity: 1;
+    }
   }
   .word {
     font-size: 2.8em;

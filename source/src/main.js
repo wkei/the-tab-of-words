@@ -5,8 +5,6 @@ import App from './App'
 
 Vue.config.productionTip = false
 
-console.log('%c こんにちは。Source code can be found in https://github.com/keiww/the-tab-of-words', 'color: #5980a7')
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -5,7 +5,7 @@ A minimal Chrome extension to help you study Japanese words in each new tab.
 ![](./docs/screenshot-card.png)
 ![](./docs/screenshot-book.png)
 
-## [Download](https://github.com/keiww/the-tab-of-words/releases/download/1.1.0/the-tab-of-words.crx)
+## [Download](https://github.com/keiww/the-tab-of-words/raw/master/the-tab-of-words.crx)
 
 ## Installation
 

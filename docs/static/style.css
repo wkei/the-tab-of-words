@@ -5,7 +5,7 @@
 body, html {
   margin: 0;
   padding-bottom: 4em;
-  font: 18px/1.5 "Hiragino Mincho ProN W6", "Source Han Serif JP", "Source Han Serif", "MS Mincho", Time, serif;
+  font: 18px/1.5 "source-han-serif-japanese", "Source Han Serif", Time, serif;
   text-align: center;
   color: #2c3e50;
 }
@@ -34,7 +34,7 @@ code {
   padding: 2px 4px;
   background: #efefef;
   border-radius: 2px;
-  font: .9em/1.3 "Roboto Mono", "Source Code Pro", Monaco, monospace;
+  font: .9em/1.3 "Roboto Mono", "Source Code Pro", Monaco, Consolas, monospace;
 }
 
 .container {

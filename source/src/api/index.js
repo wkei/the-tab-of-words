@@ -1,3 +1,3 @@
-const DB_JSON = './static/data/db.json'
+const WORDS_JSON = './static/data/words.json'
 
-export const getDB = () => fetch(DB_JSON).then(data => data.json())
+export const getWords = () => fetch(WORDS_JSON).then(data => data.json())

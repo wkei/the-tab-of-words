@@ -12,7 +12,7 @@
               <span class='level'>N{{ item.level }}</span>
               <p class='spelling'>
                 <span class='hiragana' v-if='item.hiragana'>{{ item.hiragana }}</span>
-                <span class='romaji' :class='{ show: store.showRomaji }'>{{ item.romaji }}</span>
+                <span class='romaji' :class='{ show: showRomaji }'>{{ item.romaji }}</span>
               </p>
               <p class='meaning'>{{ item.meaning }}</p>
               <button class='btn-del' @click='unlike(item)'>×</button>
@@ -20,23 +20,14 @@
           </li>
         </transition-group>
       </transition>
-      <div class='bottom'>
-        <a
-          href='javascript:void(0);'
-          class='btn'
-          :class='{ muted: !store.showRomaji }'
-          @click='toggleRomaji'
-        >
-          romaji
-        </a>
-        <a class='source' target='_blank' href='http://www.tanos.co.uk/jlpt/'>@datasource</a>
-      </div>
     </main>
+    <Settings />
   </div>
 </template>
 
 <script>
 import bus from '@/utils/bus'
+import Settings from './Settings'
 
 export default {
   data () {
@@ -44,10 +35,16 @@ export default {
       store: bus.store
     }
   },
+  components: {
+    Settings
+  },
   computed: {
+    showRomaji () {
+      return this.store.settings.showRomaji
+    },
     likedCards () {
-      const { likes, db } = this.store
-      let likedCards = db.filter(card => likes.includes(card.uuid))
+      const { likes, words } = this.store
+      let likedCards = words.filter(card => likes.includes(card.uuid))
       likedCards = likes.map(like => {
         return likedCards.filter(card => like === card.uuid)[0]
       })
@@ -60,8 +57,7 @@ export default {
     },
     unlike (item) {
       bus.unlike(item)
-    },
-    toggleRomaji: bus.toggleRomaji
+    }
   }
 }
 </script>
@@ -70,6 +66,7 @@ export default {
 .bookWrapper {
   width: 100%;
   height: 100%;
+  padding: 0 10%;
   background: #fff;
   overflow: hidden;
   overflow-y: auto;
@@ -78,9 +75,9 @@ export default {
   margin: auto;
   height: 100vh;
   width: 100%;
-  max-width: 65vh;
+  max-width: 36rem;
   min-width: 420px;
-  font-size: 2vh;
+  font-size: 1rem;
   .list {
     padding: 1.875em;
   }
@@ -89,10 +86,10 @@ export default {
     position: relative;
     margin: 1em 0;
     border-radius: 2px;
-    box-shadow: 0 1px 1px rgba(89, 119, 148, 0.15), 0 0 0.5px 0 rgba(89, 119, 148, 0.3);
+    box-shadow: 0 .1em .1em rgba(89, 119, 148, 0.15), 0 0 0.05em 0 rgba(89, 119, 148, 0.3);
     overflow: hidden;
     .inner {
-      padding: 1em 4em 1em 1em;
+      padding: .8em 4em .8em 1em;
     }
   }
   .word {
@@ -146,34 +143,6 @@ export default {
     color: var(--lightBlue);
     opacity: .5;
     transform: translateX(-50%) translateY(-100%);
-  }
-  /*.source {
-    position: fixed;
-    right: 1.8em;
-    bottom: 2em;
-    color: var(--lightBlue);
-    opacity: .6;
-  }*/
-  .bottom {
-    position: fixed;
-    top: auto;
-    right: 1.8em;
-    bottom: 2em;
-    text-align: right;
-    .btn {
-      display: block;
-      margin-bottom: .5em;
-      color: var(--darkBlue);
-      transition: all .3s;
-      &.muted {
-        color: var(--lightBlue);
-        opacity: .6;
-      }
-    }
-    .source {
-      color: var(--lightBlue);
-      opacity: .6;
-    }
   }
 }
 

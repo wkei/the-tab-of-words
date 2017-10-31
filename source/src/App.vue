@@ -26,6 +26,19 @@ export default {
     Book,
     Toolbar
   },
+  computed: {
+    fontSize () {
+      return this.store.settings.fontSize
+    }
+  },
+  watch: {
+    fontSize (val) {
+      document.documentElement.className = val
+    }
+  },
+  beforeCreate () {
+    document.documentElement.className = bus.store.settings.fontSize
+  },
   created () {
     bus.init()
     this.onKeydown()
@@ -50,7 +63,6 @@ export default {
 
 <style>
 @import 'styles/base.css';
-
 #app {
   width: 100%;
   opacity: 0;

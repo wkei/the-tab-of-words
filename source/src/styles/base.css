@@ -9,14 +9,23 @@ body, html {
   overflow: hidden;
 }
 
+html {
+  &.s {
+    font-size: 14px;
+  }
+  &.m {
+    font-size: 16px;
+  }
+  &.l {
+    font-size: 18px;
+  }
+}
+
 body {
   color: var(--darkBlue);
   background: #fff;
-  font-size: 4vh;
   line-height: 1.5;
   font-family: var(--font);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {

@@ -2,62 +2,66 @@
 
 const STORE_KEY = 'THE_TAB_OF_WORDS'
 
-const STORE_VERSION = '1.0.0'
+const STORE_VERSION = '1.1.0'
+
+const KEY_TO_STORE = ['version', 'level', 'likes', 'settings']
 
 export const initStore = {
   loaded: false,
   showBook: false,
-  db: [],
+  words: [],
   card: {},
   // will be in local store
-  version: '',
+  version: STORE_VERSION,
   level: 0, // { 0: all, 1: n1, ..., 5: n5 }
   likes: [],
-  showRomaji: false
+  settings: {
+    showRomaji: false,
+    fontSize: 'm' // 's, m, l'
+  }
 }
 
 const local = {
   init (cb) {
     if (chrome.storage) {
       chrome.storage.sync.get(STORE_KEY, (json) => {
-        let store = initStore
         json = json ? json[STORE_KEY] : {}
-        if (json && json.version === STORE_VERSION) {
-          store = {
-            ...store,
-            ...json
-          }
-        } else {
-          store.version = STORE_VERSION
-          this.update(store)
-        }
-        cb(store)
+        cb(this.getInitStore(json))
       })
     } else {
       const json = JSON.parse(window.localStorage.getItem(STORE_KEY))
-      let store = initStore
-      if (json && json.version === STORE_VERSION) {
-        store = {
-          ...store,
-          ...json
-        }
-      } else {
-        store.version = STORE_VERSION
-        this.update(store)
-      }
-      cb(store)
+      cb(this.getInitStore(json))
     }
   },
-  update (store) {
-    const json = { ...store }
-    delete json.loaded
-    delete json.showBook
-    delete json.db
-    delete json.card
-    if (chrome.storage) {
-      chrome.storage.sync.set({ [STORE_KEY]: json })
+  getInitStore (json) {
+    let store = initStore
+    if (json) {
+      store = {
+        ...store,
+        ...json
+      }
+      if (json.version !== store.version) {
+        store.version = store.version
+        if (store.version === '1.1.0') {
+          store.settings.showRomaji = store.showRomaji
+          delete store.showRomaji
+        }
+        this.update(store)
+      }
     } else {
-      window.localStorage.setItem(STORE_KEY, JSON.stringify(json))
+      this.update(store)
+    }
+    return store
+  },
+  update (store) {
+    const dataToStore = {}
+    KEY_TO_STORE.forEach(key => {
+      dataToStore[key] = store[key]
+    })
+    if (chrome.storage) {
+      chrome.storage.sync.set({ [STORE_KEY]: dataToStore })
+    } else {
+      window.localStorage.setItem(STORE_KEY, JSON.stringify(dataToStore))
     }
   }
 }

@@ -13,3 +13,8 @@ A minimal Chrome extension to help you study Japanese words in each new tab.
 
 - Open `chrome://extensions/` in Chrome
 - Drag `the-tab-of-words.crx` to Chrome
+
+## Release Notes
+
+- `1.1.0` add Chrome Sync
+- `1.2.0` add font size setting

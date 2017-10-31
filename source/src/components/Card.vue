@@ -1,7 +1,7 @@
 <template>
   <div class='card'>
     <div class='meta'>
-      <p class='romaji' :class='{ show: store.showRomaji }'>{{card.romaji || '&nbsp;'}}</p>
+      <p class='romaji' :class='{ show: showRomaji }'>{{card.romaji || '&nbsp;'}}</p>
       <p class='hiragana'>{{card.hiragana || '&nbsp;'}}</p>
     </div>
     <h1 class='word'>
@@ -22,6 +22,9 @@ export default {
     }
   },
   computed: {
+    showRomaji () {
+      return bus.store.settings.showRomaji
+    },
     card () {
       return this.store.card
     },
@@ -34,9 +37,13 @@ export default {
 
 <style>
 .card {
-  padding-top: 3em;
-  font-size: 4.5vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-60%);
+  font-size: 2rem;
   text-align: center;
+  width: 80%;
   .hiragana, .romaji {
     margin: 0;
   }

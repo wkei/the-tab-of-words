@@ -11,3 +11,6 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
+console.log('// All your likes will be sotraged in your Google account if you sign in.')
+console.log('// You can press spacebar to get next random word.')

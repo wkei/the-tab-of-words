@@ -51,19 +51,17 @@ export default {
   right: 1.8em;
   bottom: 2em;
   text-align: right;
+  font-weight: 100;
+  a {
+    color: var(--lightBlue);
+  }
   .btn {
     display: block;
     margin-bottom: .5em;
-    color: var(--lightBlue);
-    opacity: .6;
     transition: color .3s;
     &.active {
       color: var(--darkBlue);
     }
-  }
-  .source {
-    color: var(--lightBlue);
-    opacity: .6;
   }
 }
 </style>

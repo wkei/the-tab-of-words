@@ -5,7 +5,7 @@
 body, html {
   margin: 0;
   padding-bottom: 4em;
-  font: 18px/1.5 "source-han-serif-japanese", "Source Han Serif", Time, serif;
+  font: 18px/1.5 "source-han-serif-japanese", Times, serif;
   text-align: center;
   color: #2c3e50;
 }
@@ -59,20 +59,29 @@ header p {
   margin-bottom: 5em;
 }
 
+.screenshot {
+}
+
 .download {
+  display: flex;
+  margin: 2em auto;
+  flex-flow: column nowrap;
+  font-family: Times, serif;
+}
+.download-btn {
   position: relative;
   display: inline-block;
-  margin: 2em auto;
-  font-size: 2em;
+  margin: 1em auto;
+  font-size: 1.8em;
   padding: 10px;
   font-weight: bold;
 }
-.download:hover:after {
+.download-btn:hover:after {
   left: 0;
   width: 100%;
   color: #000;
 }
-.download:after {
+.download-btn:after {
   display: block;
   content: "";
   position: absolute;
@@ -82,4 +91,7 @@ header p {
   height: 1px;
   background: #333;
   transition: all .3s;
+}
+.feedback {
+  text-align: center;
 }

@@ -1,4 +1,4 @@
-/* global chrome */
+import { isNil } from '@/utils'
 
 const STORE_KEY = 'THE_TAB_OF_WORDS'
 
@@ -21,10 +21,12 @@ export const initStore = {
   }
 }
 
+const syncStorage = !isNil(window.chrome) ? window.chrome.storage.sync : null
+
 const local = {
   init (cb) {
-    if (chrome.storage) {
-      chrome.storage.sync.get(STORE_KEY, (json) => {
+    if (syncStorage) {
+      syncStorage.get(STORE_KEY, (json) => {
         json = json ? json[STORE_KEY] : {}
         cb(this.getInitStore(json))
       })
@@ -58,8 +60,8 @@ const local = {
     KEY_TO_STORE.forEach(key => {
       dataToStore[key] = store[key]
     })
-    if (chrome.storage) {
-      chrome.storage.sync.set({ [STORE_KEY]: dataToStore })
+    if (syncStorage) {
+      syncStorage.set({ [STORE_KEY]: dataToStore })
     } else {
       window.localStorage.setItem(STORE_KEY, JSON.stringify(dataToStore))
     }

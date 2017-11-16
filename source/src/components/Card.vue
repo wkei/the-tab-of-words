@@ -62,6 +62,7 @@ export default {
   .meaning {
     max-width: 80%;
     margin: 1em auto;
+    font-weight: 100;
   }
   .level {
     display: inline-block;
@@ -69,6 +70,7 @@ export default {
     border-radius: .15em;
     background: var(--darkBlue);
     font-size: .8em;
+    font-weight: 100;
     color: #fff;
   }
 }

@@ -1,23 +1,19 @@
 <template>
-  <nav class='toolbar' :class='{ hideBtns: store.showBook }'>
+  <nav class='toolbar'>
     <button
-      class='btn'
-      :disabled='store.showBook'
+      :class='{ btn: true, hide: store.showBook }'
       @click='changeLevel'
     >
       {{levels[store.level]}}
     </button>
     <button
-      class='btn'
-      :class='{ liked }'
-      :disabled='store.showBook'
+      :class='{ btn: true, liked, hide: store.showBook }'
       @click='like'
     >
       愛
     </button>
     <button
-      class='btn'
-      :class='{ show: store.showBook }'
+      :class='{ btn: true, show: store.showBook }'
       @click='toggleBook'
     >
       帳
@@ -64,11 +60,6 @@ export default {
   justify-content: flex-end;
   font-size: 1.7rem;
   user-select: none;
-  &.hideBtns {
-    .btn {
-      opacity: 0;
-    }
-  }
   .btn {
     padding: 0;
     margin-left: .8em;
@@ -79,8 +70,11 @@ export default {
       color: var(--red);
     }
     &.show {
-      opacity: 1;
       color: var(--darkBlue);
+    }
+    &.hide {
+      opacity: 0;
+      visibility: hidden;
     }
   }
   .btn-r {

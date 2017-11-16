@@ -137,9 +137,10 @@ export default {
     left: 50%;
     top: 50%;
     margin: 0;
-    font-size: 10vh;
-    text-align: center;
     font-weight: 100;
+    font-size: 5em;
+    line-height: 1em;
+    text-align: center;
     color: var(--lightBlue);
     opacity: .5;
     transform: translateX(-50%) translateY(-100%);

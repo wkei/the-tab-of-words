@@ -1,9 +1,11 @@
 <template>
   <div id='app' :class='{ loaded: store.loaded }'>
-    <transition name='fade' mode='out-in'>
-      <Card v-if='!store.showBook' />
-      <Book v-else />
-    </transition>
+    <div class='container'>
+      <transition name='fade' mode='out-in'>
+        <Card v-if='!store.showBook' />
+        <Book v-else />
+      </transition>
+    </div>
     <Toolbar />
   </div>
 </template>
@@ -70,5 +72,12 @@ export default {
 #app.loaded {
   opacity: 1;
   transition: opacity .3s;
+}
+.container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
 }
 </style>

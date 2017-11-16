@@ -17,3 +17,7 @@ A minimal Chrome / Firefox extension to help you study Japanese words in each ne
 - `1.1.0` Added Chrome Sync
 - `1.2.0` Added font size setting
 - `1.2.1` Supported Firefox
+
+## TODO
+
+- Add ON/OFF switch button

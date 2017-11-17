@@ -30,13 +30,6 @@ ul li {
   margin-bottom: 1em;
 }
 
-code {
-  padding: 2px 4px;
-  background: #efefef;
-  border-radius: 2px;
-  font: .9em/1.3 "Roboto Mono", "Source Code Pro", Monaco, Consolas, monospace;
-}
-
 .container {
   max-width: 1000px;
   margin: auto;
@@ -93,5 +86,22 @@ header p {
   transition: all .3s;
 }
 .feedback {
+  font-size: 20px;
   text-align: center;
+  font-family: Times, serif;
+}
+
+footer {
+  margin-top: 5em;
+  font-size: 13px;
+  text-align: center;
+  font-family: Avenir, Helvetica, Ubuntu, Arial, sans-serif;
+  color: #888;
+}
+
+footer li {
+  margin: 1em auto;
+}
+footer a {
+  color: #666;
 }

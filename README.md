@@ -11,7 +11,7 @@ A minimal Chrome / Firefox extension to help you study Japanese words in each ne
 
 ## [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/the-tab-of-words/?src=https://the-tab-of-words.keipixel.com/)
 
-## Release Notes
+## RELEASE NOTES
 
 - `1.0.0` First launch
 - `1.1.0` Added Chrome Sync
@@ -21,3 +21,7 @@ A minimal Chrome / Firefox extension to help you study Japanese words in each ne
 ## TODO
 
 - Add ON/OFF switch button
+
+## CREDIT
+
+Thanks [Jonathan Waller](http://www.tanos.co.uk/jlpt/) so much for providing his JLPT words data.

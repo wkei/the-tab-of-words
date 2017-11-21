@@ -20,7 +20,10 @@ A minimal Chrome / Firefox extension to help you study Japanese words in each ne
 
 ## TODO
 
-- Add ON/OFF switch button
+- [ ] Add ON/OFF switch button
+- [ ] Add voice
+- [ ] Add 「一期一会」 Mode
+- [ ] Mobile WPA word cards
 
 ## CREDIT
 

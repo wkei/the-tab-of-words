@@ -24,6 +24,7 @@ A minimal Chrome / Firefox extension to help you study Japanese words in each ne
 - [ ] Add voice
 - [ ] Add 「一期一会」 Mode
 - [ ] Mobile WPA word cards
+- [ ] Night Mode
 
 ## CREDIT
 

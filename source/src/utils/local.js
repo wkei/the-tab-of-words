@@ -1,8 +1,9 @@
-import { isNil } from '@/utils'
+import _get from 'lodash/get'
+import _merge from 'lodash/merge'
 
 const STORE_KEY = 'THE_TAB_OF_WORDS'
 
-const STORE_VERSION = '1.1.0'
+const STORE_VERSION = '1.3.0'
 
 const KEY_TO_STORE = ['version', 'level', 'likes', 'settings']
 
@@ -17,11 +18,12 @@ export const initStore = {
   likes: [],
   settings: {
     showRomaji: false,
-    fontSize: 'm' // 's, m, l'
+    fontSize: 'm', // 's, m, l'
+    theme: 'sunrise' // 'sunrise', 'sunset', 'moon'
   }
 }
 
-const syncStorage = !isNil(window.chrome) ? window.chrome.storage.sync : null
+const syncStorage = _get(window, ['chrome', 'storage', 'sync'], null)
 
 const local = {
   init (cb) {
@@ -38,15 +40,17 @@ const local = {
   getInitStore (json) {
     let store = initStore
     if (json) {
-      store = {
-        ...store,
-        ...json
-      }
+      store = _merge(store, json)
       if (json.version !== store.version) {
         store.version = store.version
-        if (store.version === '1.1.0') {
-          store.settings.showRomaji = store.showRomaji
-          delete store.showRomaji
+        // Memory is a wonderful thing if you don't have to deal with the past.
+        switch (store.version) {
+          case '1.1.0':
+            store.settings.showRomaji = store.showRomaji
+            delete store.showRomaji
+            break
+          default:
+            break
         }
         this.update(store)
       }

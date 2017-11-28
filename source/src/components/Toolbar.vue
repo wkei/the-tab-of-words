@@ -10,13 +10,19 @@
       :class='{ btn: true, liked, hide: store.showBook }'
       @click='like'
     >
-      愛
+      隠
     </button>
     <button
       :class='{ btn: true, show: store.showBook }'
       @click='toggleBook'
     >
       帳
+    </button>
+    <button
+      class='btn'
+      @click='changeTheme'
+    >
+      {{themes[theme]}}
     </button>
   </nav>
 </template>
@@ -27,11 +33,19 @@ import bus from '@/utils/bus'
 export default {
   data () {
     return {
+      themes: {
+        sunrise: '日',
+        sunset: '夕',
+        moon: '月'
+      },
       levels: ['全', '一', '二', '三', '四', '五'],
       store: bus.store
     }
   },
   computed: {
+    theme () {
+      return this.store.settings.theme
+    },
     liked () {
       return bus.checkLiked(this.store.card)
     }
@@ -45,7 +59,8 @@ export default {
       }
     },
     changeLevel: bus.changeLevel,
-    toggleBook: bus.toggleBook
+    toggleBook: bus.toggleBook,
+    changeTheme: bus.changeTheme
   }
 }
 </script>
@@ -63,18 +78,30 @@ export default {
   .btn {
     padding: 0;
     margin-left: .8em;
-    color: var(--lightBlue);
+    color: var(--cyan);
     font-family: var(--fontSerif);
     transition: color .3s, opacity .3s;
-    &.liked {
+    /*&.liked {
       color: var(--red);
-    }
+    }*/
     &.show {
-      color: var(--darkBlue);
+      color: var(--inkBlue);
     }
     &.hide {
       opacity: 0;
       visibility: hidden;
+    }
+    .moon & {
+      color: var(--silver);
+      &.show {
+        color: var(--white);
+      }
+    }
+    .sunset & {
+      color: var(--lightGreen);
+      &.show {
+        color: var(--green);
+      }
     }
   }
   .btn-r {

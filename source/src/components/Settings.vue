@@ -52,15 +52,22 @@ export default {
   bottom: 2em;
   text-align: right;
   font-weight: 100;
+  user-select: none;
   a {
-    color: var(--lightBlue);
+    color: color(var(--cyan) a(80%));
+    .sunset & {
+      color: color(var(--lightGreen) a(80%));
+    }
+    .moon & {
+      color: color(var(--silver) a(80%));
+    }
   }
   .btn {
     display: block;
     margin-bottom: .5em;
     transition: color .3s;
     &.active {
-      color: var(--darkBlue);
+      color: var(--inkBlue);
     }
   }
 }

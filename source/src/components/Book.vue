@@ -4,7 +4,7 @@
       <transition name='fade' mode='out-in'>
         <div class='empty' v-if='!likedCards.length'>空</div>
         <transition-group name='list' tag='ul' class='list' v-else>
-          <li v-for='item, idx in likedCards' :key='item.uuid' class='item'>
+          <li v-for='(item, idx) in likedCards' :key='idx' class='item'>
             <div class='inner'>
               <h3 class='word'>
                 <a :href='searchUrl(item.word)' target='_blank'>{{item.word}}</a>
@@ -67,7 +67,6 @@ export default {
   width: 100%;
   height: 100%;
   padding: 0 10%;
-  background: #fff;
   overflow: hidden;
   overflow-y: auto;
 }
@@ -87,9 +86,25 @@ export default {
     margin: 1em 0;
     border-radius: 2px;
     box-shadow: 0 .1em .1em rgba(89, 119, 148, 0.15), 0 0 0.05em 0 rgba(89, 119, 148, 0.3);
+    border: 1px solid transparent;
+    border-left-width: 2px;
     overflow: hidden;
     .inner {
       padding: .8em 4em .8em 1em;
+    }
+    .moon & {
+      box-shadow: none;
+      border-radius: 0;
+      border-left: 2px solid var(--cyan);
+      background: var(--inkBlue);
+    }
+    .sunset & {
+      box-shadow: none;
+      border-radius: 0;
+      /* border-right: 2px solid var(--lightGreen); */
+      /* background: var(--inkBlue); */
+      background: color(var(--green) a(8%));
+      border-bottom: 1px solid var(--lightGreen);
     }
   }
   .word {
@@ -103,9 +118,16 @@ export default {
     top: 1em;
     padding: 1px .5em 0;
     border-radius: 2px;
-    background: var(--lightBlue);
-    color: #fff;
+    background: var(--cyan);
+    color: var(--white);
     font-size: .8em;
+    user-select: none;
+    .moon & {
+      background: var(--darkInk);
+    }
+    .sunset & {
+      background: var(--green);
+    }
   }
   .spelling {
     margin: .5em 0 0;
@@ -115,8 +137,10 @@ export default {
     .romaji {
       opacity: 0;
       transition: opacity .3s;
+      user-select: none;
       &.show {
         opacity: 1;
+        user-select: auto;
       }
     }
   }
@@ -128,9 +152,15 @@ export default {
     right: .75em;
     bottom: .7em;
     padding: .7em;
-    opacity: .5;
-    color: var(--lightBlue);
+    color: color(var(--cyan) a(80%));
     line-height: 0;
+    user-select: none;
+    .moon & {
+      color: color(var(--silver) a(80%));
+    }
+    .sunset & {
+      color: color(var(--lightGreen) a(80%));
+    }
   }
   .empty {
     position: fixed;
@@ -141,7 +171,7 @@ export default {
     font-size: 5em;
     line-height: 1em;
     text-align: center;
-    color: var(--lightBlue);
+    color: var(--cyan);
     opacity: .5;
     transform: translateX(-50%) translateY(-100%);
   }

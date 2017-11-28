@@ -1,9 +1,13 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+import bus from '@/utils/bus'
 import App from './App'
 
 Vue.config.productionTip = false
+
+document.documentElement.className = bus.store.settings.fontSize
+document.body.className = bus.store.settings.theme
 
 /* eslint-disable no-new */
 new Vue({
@@ -12,5 +16,5 @@ new Vue({
   components: { App }
 })
 
-console.log('// All your liked words will be synced if you sign in Chrome / Firefox Account.')
-console.log('// You can press spacebar / enter to get next random word.')
+console.log('// Signed in Chrome / Firefox Account to sync your settings.')
+console.log('// You can press SPACEBAR / ENTER to get another random word.')

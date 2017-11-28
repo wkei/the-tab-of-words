@@ -10,6 +10,7 @@ module.exports = {
     'postcss-nested': {},
     'postcss-custom-properties': {
       variables
-    }
+    },
+    'postcss-color-function': {}
   }
 }

@@ -1,11 +1,15 @@
 import Vue from 'vue'
+import _filter from 'lodash/filter'
+import _includes from 'lodash/includes'
 import local, { initStore } from '@/utils/local'
 import { getWords } from '@/api'
-import { randomArrEl } from '@/utils'
+import { randomArrEl, getNextArrEl } from '@/utils'
 
 const MIN_LEVEL = 5
 
 const FONT_SIZES = ['s', 'm', 'l']
+
+const THEME_KEYS = ['sunrise', 'sunset', 'moon']
 
 const bus = new Vue({
   data: {
@@ -13,10 +17,11 @@ const bus = new Vue({
   },
   computed: {
     filteredWords () {
-      const { level, words } = this.store
-      return level === 0
+      const { level, words, likes } = this.store
+      const _words = level === 0
         ? words
         : words.filter(item => item.level === level)
+      return _filter(_words, word => !_includes(likes, word.uuid))
     }
   },
   methods: {
@@ -31,7 +36,7 @@ const bus = new Vue({
       })
     },
     generateCard () {
-      this.store.card = randomArrEl(this.filteredWords)
+      this.store.card = randomArrEl(this.filteredWords, this.store.likes)
     },
     changeLevel () {
       let { level } = this.store
@@ -48,6 +53,7 @@ const bus = new Vue({
       if (!this.checkLiked(card)) {
         this.store.likes.push(card.uuid)
         local.update(this.store)
+        this.generateCard()
       }
     },
     unlike (card) {
@@ -72,10 +78,11 @@ const bus = new Vue({
       local.update(this.store)
     },
     toggleFontSize () {
-      const currentIdx = FONT_SIZES.indexOf(this.store.settings.fontSize)
-      const nextIdx = currentIdx + 1 >= FONT_SIZES.length ? 0 : currentIdx + 1
-      const nextFontSize = FONT_SIZES[nextIdx]
-      this.store.settings.fontSize = nextFontSize
+      this.store.settings.fontSize = getNextArrEl(this.store.settings.fontSize, FONT_SIZES)
+      local.update(this.store)
+    },
+    changeTheme () {
+      this.store.settings.theme = getNextArrEl(this.store.settings.theme, THEME_KEYS)
       local.update(this.store)
     }
   }

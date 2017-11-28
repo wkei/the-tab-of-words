@@ -29,6 +29,9 @@ export default {
     Toolbar
   },
   computed: {
+    theme () {
+      return this.store.settings.theme
+    },
     fontSize () {
       return this.store.settings.fontSize
     }
@@ -36,10 +39,10 @@ export default {
   watch: {
     fontSize (val) {
       document.documentElement.className = val
+    },
+    theme (val) {
+      document.body.className = val
     }
-  },
-  beforeCreate () {
-    document.documentElement.className = bus.store.settings.fontSize
   },
   created () {
     bus.init()
@@ -67,11 +70,12 @@ export default {
 @import 'styles/base.css';
 #app {
   width: 100%;
+  height: 100%;
   opacity: 0;
-}
-#app.loaded {
-  opacity: 1;
-  transition: opacity .3s;
+  &.loaded {
+    opacity: 1;
+    transition: opacity .3s;
+  }
 }
 .container {
   position: fixed;

@@ -7,6 +7,19 @@
 body, html {
   height: 100vh;
   overflow: hidden;
+  transition: background-color .3s, color .3s;
+  &.sunrise {
+    color: var(--inkBlue);
+    background: var(--white);
+  }
+  &.sunset {
+    color: var(--green);
+    background: var(--yellow);
+  }
+  &.moon {
+    color: var(--white);
+    background: var(--darkInk);
+  }
 }
 
 html {
@@ -22,15 +35,21 @@ html {
 }
 
 body {
-  color: var(--darkBlue);
-  background: #fff;
   line-height: 1.5;
   font-family: var(--font);
 }
 
 a {
   text-decoration: none;
-  color: var(--darkBlue);
+  .sunrise & {
+    color: var(--inkBlue);
+  }
+  .sunset & {
+    color: var(--green);
+  }
+  .moon & {
+    color: var(--white);
+  }
 }
 
 .transparent {
@@ -51,8 +70,16 @@ button {
   background: none;
   outline: none;
   cursor: pointer;
-  color: var(--darkBlue);
   line-height: 1;
+  .sunrise & {
+    color: var(--inkBlue);
+  }
+  .sunset & {
+    color: var(--green);
+  }
+  .moon & {
+    color: var(--white);
+  }
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .2s;

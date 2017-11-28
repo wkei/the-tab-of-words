@@ -68,10 +68,18 @@ export default {
     display: inline-block;
     padding: 0 1em;
     border-radius: .15em;
-    background: var(--darkBlue);
     font-size: .8em;
     font-weight: 100;
-    color: #fff;
+    color: var(--white);
+    background: var(--inkBlue);
+    .moon & {
+      color: var(--darkInk);
+      background: var(--white);
+    }
+    .sunset & {
+      color: var(--white);
+      background: var(--green);
+    }
   }
 }
 </style>

@@ -37,11 +37,13 @@ export default {
     }
   },
   watch: {
-    fontSize (val) {
-      document.documentElement.className = val
+    fontSize (val, prevVal) {
+      document.body.classList.remove(prevVal)
+      document.body.classList.add(val)
     },
-    theme (val) {
-      document.body.className = val
+    theme (val, prevVal) {
+      document.body.classList.remove(prevVal)
+      document.body.classList.add(val)
     }
   },
   created () {

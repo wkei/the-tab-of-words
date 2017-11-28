@@ -13,18 +13,22 @@ A minimal Chrome / Firefox extension to help you study Japanese words in each ne
 
 ## RELEASE NOTES
 
-- `1.0.0` First launch
+- `1.0.0` Launched
 - `1.1.0` Added Chrome Sync
 - `1.2.0` Added font size setting
 - `1.2.1` Supported Firefox
+- `1.3.0`
+  - Add「日」/「夕」/「月」themes
+  - Change `likes` to `hides` ( hiddens words will not appear anymore)
+  - Add voice ( click hinagana )
+  - Fix words data manually...
 
 ## TODO
 
+- [x] Add voice
+- [x] Night Mode
 - [ ] Add ON/OFF switch button
-- [ ] Add voice
-- [ ] Add 「一期一会」 Mode
 - [ ] Mobile WPA word cards
-- [ ] Night Mode
 
 ## CREDIT
 

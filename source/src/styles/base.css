@@ -6,6 +6,8 @@
 
 body, html {
   height: 100vh;
+  line-height: 1.5;
+  font-family: var(--font);
   overflow: hidden;
   transition: background-color .3s, color .3s;
   &.sunrise {
@@ -17,12 +19,9 @@ body, html {
     background: var(--yellow);
   }
   &.moon {
-    color: var(--white);
+    color: var(--grey);
     background: var(--darkInk);
   }
-}
-
-html {
   &.s {
     font-size: 14px;
   }
@@ -34,11 +33,6 @@ html {
   }
 }
 
-body {
-  line-height: 1.5;
-  font-family: var(--font);
-}
-
 a {
   text-decoration: none;
   .sunrise & {
@@ -48,7 +42,7 @@ a {
     color: var(--green);
   }
   .moon & {
-    color: var(--white);
+    color: var(--grey);
   }
 }
 
@@ -78,7 +72,7 @@ button {
     color: var(--green);
   }
   .moon & {
-    color: var(--white);
+    color: var(--grey);
   }
 }
 .fade-enter-active, .fade-leave-active {

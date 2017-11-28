@@ -2,61 +2,69 @@
   <div class='bookWrapper'>
     <main class='book'>
       <transition name='fade' mode='out-in'>
-        <div class='empty' v-if='!likedCards.length'>空</div>
+        <div class='empty' v-if='!hiddenCards.length'>空</div>
         <transition-group name='list' tag='ul' class='list' v-else>
-          <li v-for='(item, idx) in likedCards' :key='idx' class='item'>
+          <li v-for='(item, idx) in hiddenCards' :key='idx' class='item'>
             <div class='inner'>
               <h3 class='word'>
                 <a :href='searchUrl(item.word)' target='_blank'>{{item.word}}</a>
               </h3>
               <span class='level'>N{{ item.level }}</span>
               <p class='spelling'>
-                <span class='hiragana' v-if='item.hiragana'>{{ item.hiragana }}</span>
+                <span class='hiragana' @click='playVoice(item.word)'>{{ item.hiragana || item.word }}</span>
                 <span class='romaji' :class='{ show: showRomaji }'>{{ item.romaji }}</span>
               </p>
               <p class='meaning'>{{ item.meaning }}</p>
-              <button class='btn-del' @click='unlike(item)'>×</button>
+              <button class='btn-del' @click='unhide(item)'>×</button>
             </div>
           </li>
         </transition-group>
       </transition>
     </main>
     <Settings />
+    <Voice :word='wordToPlay' ref='voiceRef'/>
   </div>
 </template>
 
 <script>
 import bus from '@/utils/bus'
-import Settings from './Settings'
+import Settings from '@/components/Settings'
+import Voice from '@/components/Voice'
 
 export default {
   data () {
     return {
-      store: bus.store
+      store: bus.store,
+      wordToPlay: ''
     }
   },
   components: {
-    Settings
+    Settings,
+    Voice
   },
   computed: {
     showRomaji () {
       return this.store.settings.showRomaji
     },
-    likedCards () {
-      const { likes, words } = this.store
-      let likedCards = words.filter(card => likes.includes(card.uuid))
-      likedCards = likes.map(like => {
-        return likedCards.filter(card => like === card.uuid)[0]
+    hiddenCards () {
+      const { hides, words } = this.store
+      let hiddenCards = words.filter(card => hides.includes(card.uuid))
+      hiddenCards = hides.map(item => {
+        return hiddenCards.filter(card => item === card.uuid)[0]
       })
-      return likedCards
+      return hiddenCards
     }
   },
   methods: {
     searchUrl (word) {
       return `http://jisho.org/search/${word}`
     },
-    unlike (item) {
-      bus.unlike(item)
+    unhide (item) {
+      bus.unhide(item)
+    },
+    playVoice (word) {
+      this.wordToPlay = word
+      this.$refs.voiceRef.play()
     }
   }
 }
@@ -101,9 +109,7 @@ export default {
     .sunset & {
       box-shadow: none;
       border-radius: 0;
-      /* border-right: 2px solid var(--lightGreen); */
-      /* background: var(--inkBlue); */
-      background: color(var(--green) a(8%));
+      background: color(var(--green) a(5%));
       border-bottom: 1px solid var(--lightGreen);
     }
   }
@@ -123,9 +129,11 @@ export default {
     font-size: .8em;
     user-select: none;
     .moon & {
+      color: var(--grey);
       background: var(--darkInk);
     }
     .sunset & {
+      color: var(--yellow);
       background: var(--green);
     }
   }
@@ -133,6 +141,7 @@ export default {
     margin: .5em 0 0;
     .hiragana {
       margin-right: .5em;
+      cursor: pointer;
     }
     .romaji {
       opacity: 0;

@@ -17,11 +17,11 @@ const bus = new Vue({
   },
   computed: {
     filteredWords () {
-      const { level, words, likes } = this.store
+      const { level, words, hides } = this.store
       const _words = level === 0
         ? words
         : words.filter(item => item.level === level)
-      return _filter(_words, word => !_includes(likes, word.uuid))
+      return _filter(_words, word => !_includes(hides, word.uuid))
     }
   },
   methods: {
@@ -36,7 +36,7 @@ const bus = new Vue({
       })
     },
     generateCard () {
-      this.store.card = randomArrEl(this.filteredWords, this.store.likes)
+      this.store.card = randomArrEl(this.filteredWords, this.store.hides)
     },
     changeLevel () {
       let { level } = this.store
@@ -46,20 +46,15 @@ const bus = new Vue({
       this.generateCard()
       local.update(this.store)
     },
-    checkLiked (card) {
-      return this.store.likes.includes(card.uuid)
+    hide (card) {
+      this.store.hides.push(card.uuid)
+      local.update(this.store)
+      this.generateCard()
     },
-    like (card) {
-      if (!this.checkLiked(card)) {
-        this.store.likes.push(card.uuid)
-        local.update(this.store)
-        this.generateCard()
-      }
-    },
-    unlike (card) {
-      const idx = this.store.likes.indexOf(card.uuid)
+    unhide (card) {
+      const idx = this.store.hides.indexOf(card.uuid)
       if (idx >= 0) {
-        this.store.likes.splice(idx, 1)
+        this.store.hides.splice(idx, 1)
         local.update(this.store)
       }
     },

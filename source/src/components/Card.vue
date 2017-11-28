@@ -2,24 +2,30 @@
   <div class='card'>
     <div class='meta'>
       <p class='romaji' :class='{ show: showRomaji }'>{{card.romaji || '&nbsp;'}}</p>
-      <p class='hiragana'>{{card.hiragana || '&nbsp;'}}</p>
+      <p class='hiragana' @click='playVoice'>{{card.hiragana || card.word}}</p>
     </div>
     <h1 class='word'>
       <a :href='searchUrl' target='_blank'>{{card.word}}</a>
     </h1>
     <p class='meaning'>{{card.meaning}}</p>
     <span class='level'>N{{card.level}}</span>
+    <Voice :word='card.word' ref='voiceRef' />
   </div>
 </template>
 
 <script>
 import bus from '@/utils/bus'
+import Voice from '@/components/Voice'
 
 export default {
   data () {
     return {
-      store: bus.store
+      store: bus.store,
+      voice: ''
     }
+  },
+  components: {
+    Voice
   },
   computed: {
     showRomaji () {
@@ -31,13 +37,18 @@ export default {
     searchUrl () {
       return `http://jisho.org/search/${this.store.card.word}`
     }
+  },
+  methods: {
+    playVoice () {
+      this.$refs.voiceRef.play()
+    }
   }
 }
 </script>
 
 <style>
 .card {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-60%);
@@ -46,6 +57,9 @@ export default {
   width: 80%;
   .hiragana, .romaji {
     margin: 0;
+  }
+  .hiragana {
+    cursor: pointer;
   }
   .romaji {
     opacity: 0;
@@ -74,10 +88,10 @@ export default {
     background: var(--inkBlue);
     .moon & {
       color: var(--darkInk);
-      background: var(--white);
+      background: var(--grey);
     }
     .sunset & {
-      color: var(--white);
+      color: var(--yellow);
       background: var(--green);
     }
   }

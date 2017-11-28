@@ -16,6 +16,7 @@
       romaji
     </a>
     <a class='source' target='_blank' href='http://www.tanos.co.uk/jlpt/'>@datasource</a>
+    <a class='source' target='_blank' href='http://the-tab-of-words.keipixel.com/'>@homepage</a>
   </div>
 </template>
 
@@ -61,6 +62,10 @@ export default {
     .moon & {
       color: color(var(--silver) a(80%));
     }
+  }
+  .source {
+    display: block;
+    margin-top: .5em;
   }
   .btn {
     display: block;

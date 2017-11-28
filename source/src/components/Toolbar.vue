@@ -7,8 +7,8 @@
       {{levels[store.level]}}
     </button>
     <button
-      :class='{ btn: true, liked, hide: store.showBook }'
-      @click='like'
+      :class='{ btn: true, hide: store.showBook }'
+      @click='hide'
     >
       隠
     </button>
@@ -45,18 +45,11 @@ export default {
   computed: {
     theme () {
       return this.store.settings.theme
-    },
-    liked () {
-      return bus.checkLiked(this.store.card)
     }
   },
   methods: {
-    like () {
-      if (!bus.checkLiked(this.store.card)) {
-        bus.like(this.store.card)
-      } else {
-        bus.unlike(this.store.card)
-      }
+    hide () {
+      bus.hide(this.store.card)
     },
     changeLevel: bus.changeLevel,
     toggleBook: bus.toggleBook,
@@ -81,9 +74,6 @@ export default {
     color: var(--cyan);
     font-family: var(--fontSerif);
     transition: color .3s, opacity .3s;
-    /*&.liked {
-      color: var(--red);
-    }*/
     &.show {
       color: var(--inkBlue);
     }

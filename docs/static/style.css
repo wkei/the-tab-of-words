@@ -5,7 +5,7 @@
 body, html {
   margin: 0;
   padding-bottom: 4em;
-  font: 18px/1.5 "source-han-serif-japanese", Times, serif;
+  font: 20px/1.5 "heisei-mincho-std", serif;
   text-align: center;
   color: #2c3e50;
 }
@@ -42,12 +42,6 @@ h1 {
   font-weight: normal;
 }
 
-h2 {
-  margin: 1em 0;
-  font-size: 2em;
-  font-weight: normal;
-}
-
 header p {
   margin-bottom: 5em;
 }
@@ -59,13 +53,12 @@ header p {
   display: flex;
   margin: 2em auto;
   flex-flow: column nowrap;
-  font-family: Times, serif;
 }
 .download-btn {
   position: relative;
   display: inline-block;
   margin: 1em auto;
-  font-size: 1.8em;
+  font-size: 1.6em;
   padding: 10px;
   font-weight: bold;
 }
@@ -83,12 +76,12 @@ header p {
   width: 50%;
   height: 1px;
   background: #333;
-  transition: all .3s;
+  transition: all .2s;
 }
+
 .feedback {
   font-size: 20px;
   text-align: center;
-  font-family: Times, serif;
 }
 
 footer {
@@ -96,12 +89,12 @@ footer {
   font-size: 13px;
   text-align: center;
   font-family: Avenir, Helvetica, Ubuntu, Arial, sans-serif;
-  color: #888;
+  color: #999;
 }
 
 footer li {
   margin: 1em auto;
 }
 footer a {
-  color: #666;
+  color: #555;
 }

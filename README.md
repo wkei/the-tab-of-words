@@ -1,6 +1,6 @@
 # 言葉 の Tab
 
-A minimal Chrome / Firefox extension to help you study Japanese words in each new tab.
+A minimal Chrome / Firefox extension to help you learn Japanese words in each new tab.
 
 ![](./docs/static/chrome.jpg)
 ![](./docs/static/firefox.jpg)

@@ -1,7 +1,7 @@
 {
   "name": "the-tab-of-words",
   "version": "1.3.0",
-  "description": "言葉 の Tab. A minimal extension to help you study Japanese words in each new tab.",
+  "description": "言葉 の Tab. A minimal extension to help you learn Japanese words in each new tab.",
   "author": "keiww <yqw.kei@gmail.com>",
   "private": true,
   "scripts": {

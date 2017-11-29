@@ -7,7 +7,7 @@ A minimal Chrome / Firefox extension to help you study Japanese words in each ne
 
 ## [Chrome Web Store](https://chrome.google.com/webstore/detail/%E8%A8%80%E8%91%89-%E3%81%AE-tab/lacmiiahoideajihiclkhmdkikkbjcnb)
 
-## [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/the-tab-of-words/?src=https://the-tab-of-words.keipixel.com/)
+## [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/the-tab-of-words/?src=https://github.com/keiww/the-tab-of-words)
 
 ## RELEASE NOTES
 

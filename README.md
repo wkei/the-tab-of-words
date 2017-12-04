@@ -20,8 +20,7 @@ A minimal Chrome / Firefox extension to help you learn Japanese words in each ne
   + Change `likes` to `hides` ( hiddens words will not appear anymore)
   + Fix words data manually...
 - `1.3.1`
-  + Fixed Firefox safety issue
-  + Voice feature is not ready now (looking for a text2voice service)
+  + Removed voice feature (still looking for a text2voice service)
 
 ## TODO
 

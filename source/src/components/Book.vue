@@ -11,7 +11,8 @@
               </h3>
               <span class='level'>N{{ item.level }}</span>
               <p class='spelling'>
-                <span class='hiragana' @click='playVoice(item.word)'>{{ item.hiragana || item.word }}</span>
+                <!-- <span class='hiragana' @click='playVoice(item.word)'>{{ item.hiragana || item.word }}</span> -->
+                <span class='hiragana'>{{ item.hiragana || item.word }}</span>
                 <span class='romaji' :class='{ show: showRomaji }'>{{ item.romaji }}</span>
               </p>
               <p class='meaning'>{{ item.meaning }}</p>
@@ -22,14 +23,14 @@
       </transition>
     </main>
     <Settings />
-    <Voice :word='wordToPlay' ref='voiceRef'/>
+    <!-- <Voice :word='wordToPlay' ref='voiceRef'/> -->
   </div>
 </template>
 
 <script>
 import bus from '@/utils/bus'
 import Settings from '@/components/Settings'
-import Voice from '@/components/Voice'
+// import Voice from '@/components/Voice'
 
 export default {
   data () {
@@ -39,8 +40,9 @@ export default {
     }
   },
   components: {
-    Settings,
-    Voice
+    Settings
+    // ,
+    // Voice
   },
   computed: {
     showRomaji () {
@@ -52,7 +54,7 @@ export default {
       hiddenCards = hides.map(item => {
         return hiddenCards.filter(card => item === card.uuid)[0]
       })
-      return hiddenCards
+      return hiddenCards.reserve()
     }
   },
   methods: {
@@ -61,11 +63,12 @@ export default {
     },
     unhide (item) {
       bus.unhide(item)
-    },
-    playVoice (word) {
-      this.wordToPlay = word
-      this.$refs.voiceRef.play()
     }
+    // ,
+    // playVoice (word) {
+    //   this.wordToPlay = word
+    //   this.$refs.voiceRef.play()
+    // }
   }
 }
 </script>

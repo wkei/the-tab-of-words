@@ -2,31 +2,33 @@
   <div class='card'>
     <div class='meta'>
       <p class='romaji' :class='{ show: showRomaji }'>{{card.romaji || '&nbsp;'}}</p>
-      <p class='hiragana' @click='playVoice'>{{card.hiragana || card.word}}</p>
+      <!-- <p class='hiragana' @click='playVoice'>{{card.hiragana || card.word}}</p> -->
+      <p class='hiragana'>{{card.hiragana || card.word}}</p>
     </div>
     <h1 class='word'>
       <a :href='searchUrl' target='_blank'>{{card.word}}</a>
     </h1>
     <p class='meaning'>{{card.meaning}}</p>
     <span class='level'>N{{card.level}}</span>
-    <Voice :word='card.word' ref='voiceRef' />
+    <!-- <Voice :word='card.word' ref='voiceRef' /> -->
   </div>
 </template>
 
 <script>
 import bus from '@/utils/bus'
-import Voice from '@/components/Voice'
+// import Voice from '@/components/Voice'
 
 export default {
   data () {
     return {
-      store: bus.store,
-      voice: ''
+      store: bus.store
+      // ,
+      // voice: ''
     }
   },
-  components: {
-    Voice
-  },
+  // components: {
+  //   Voice
+  // },
   computed: {
     showRomaji () {
       return bus.store.settings.showRomaji
@@ -37,12 +39,13 @@ export default {
     searchUrl () {
       return `http://jisho.org/search/${this.store.card.word}`
     }
-  },
-  methods: {
-    playVoice () {
-      this.$refs.voiceRef.play()
-    }
   }
+  // ,
+  // methods: {
+  //   playVoice () {
+  //     this.$refs.voiceRef.play()
+  //   }
+  // }
 }
 </script>
 

@@ -61,9 +61,9 @@ export default {
   .hiragana, .romaji {
     margin: 0;
   }
-  .hiragana {
+/* .hiragana {
     cursor: pointer;
-  }
+  } */
   .romaji {
     opacity: 0;
     font-size: .8em;

@@ -144,7 +144,7 @@ export default {
     margin: .5em 0 0;
     .hiragana {
       margin-right: .5em;
-      cursor: pointer;
+      /*cursor: pointer;*/
     }
     .romaji {
       opacity: 0;

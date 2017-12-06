@@ -23,6 +23,8 @@ A minimal Chrome / Firefox extension to help you learn Japanese words in each ne
 - `1.3.2`
   + Fixed bug in「帳」
   + Made font size bigger in "L"
+- `1.3.3` Fixed font style
+
 
 ## TODO
 

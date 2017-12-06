@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-html {
+html, body {
   height: 100%;
   line-height: 1.5;
   font-family: var(--font);
@@ -31,10 +31,6 @@ html {
   &.l {
     font-size: 20px;
   }
-}
-
-body {
-  height: 100%;
 }
 
 a {

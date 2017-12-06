@@ -38,12 +38,12 @@ export default {
   },
   watch: {
     fontSize (val, prevVal) {
-      document.body.classList.remove(prevVal)
-      document.body.classList.add(val)
+      document.documentElement.classList.remove(prevVal)
+      document.documentElement.classList.add(val)
     },
     theme (val, prevVal) {
-      document.body.classList.remove(prevVal)
-      document.body.classList.add(val)
+      document.documentElement.classList.remove(prevVal)
+      document.documentElement.classList.add(val)
     }
   },
   created () {

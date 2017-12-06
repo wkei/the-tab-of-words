@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 
-body, html {
-  height: 100vh;
+html {
+  height: 100%;
   line-height: 1.5;
   font-family: var(--font);
   overflow: hidden;
@@ -29,8 +29,12 @@ body, html {
     font-size: 16px;
   }
   &.l {
-    font-size: 18px;
+    font-size: 20px;
   }
+}
+
+body {
+  height: 100%;
 }
 
 a {

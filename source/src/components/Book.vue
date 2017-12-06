@@ -54,7 +54,7 @@ export default {
       hiddenCards = hides.map(item => {
         return hiddenCards.filter(card => item === card.uuid)[0]
       })
-      return hiddenCards.reserve()
+      return hiddenCards.reverse()
     }
   },
   methods: {

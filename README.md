@@ -19,8 +19,10 @@ A minimal Chrome / Firefox extension to help you learn Japanese words in each ne
   + Add「日」/「夕」/「月」themes
   + Change `likes` to `hides` ( hiddens words will not appear anymore)
   + Fix words data manually...
-- `1.3.1`
-  + Removed voice feature (still looking for a text2voice service)
+- `1.3.1` Removed voice feature (still looking for a text2voice service)
+- `1.3.2`
+  + Fixed bug in「帳」
+  + Made font size bigger in "L"
 
 ## TODO
 

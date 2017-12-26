@@ -24,17 +24,18 @@ A minimal Chrome / Firefox extension to help you learn Japanese words in each ne
   + Fixed bug in「帳」
   + Made font size bigger in "L"
 - `1.3.3` Fixed font style
-
+- `1.4.0`
+  + Fixed UI style
+  + Added voice feature
 
 ## TODO
 
 - [x] Add voice
 - [x] Night Mode
-- [ ] Look for a new words data
-- [ ] Add voice
-- [ ] Add statistics
-- [ ] Add ON/OFF switch button
+- [x] Add voice
 - [ ] Mobile WPA word cards
+- [ ] Look for a new words data
+- [ ] Add statistics
 
 ## CREDIT
 

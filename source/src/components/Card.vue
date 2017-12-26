@@ -1,34 +1,33 @@
 <template>
   <div class='card'>
     <div class='meta'>
-      <p class='romaji' :class='{ show: showRomaji }'>{{card.romaji || '&nbsp;'}}</p>
-      <!-- <p class='hiragana' @click='playVoice'>{{card.hiragana || card.word}}</p> -->
-      <p class='hiragana'>{{card.hiragana || card.word}}</p>
+      <span class='romaji' :class='{ show: showRomaji }'>{{card.romaji || '&nbsp;'}}</span>
+      <a class='hiragana' @click='playVoice'>{{card.hiragana || card.word}}</a>
+      <!-- <p class='hiragana'>{{card.hiragana || card.word}}</p> -->
     </div>
     <h1 class='word'>
       <a :href='searchUrl' target='_blank'>{{card.word}}</a>
     </h1>
     <p class='meaning'>{{card.meaning}}</p>
     <span class='level'>N{{card.level}}</span>
-    <!-- <Voice :word='card.word' ref='voiceRef' /> -->
+    <Voice :word='card.word' ref='voiceRef' />
   </div>
 </template>
 
 <script>
 import bus from '@/utils/bus'
-// import Voice from '@/components/Voice'
+import Voice from '@/components/Voice'
 
 export default {
   data () {
     return {
-      store: bus.store
-      // ,
-      // voice: ''
+      store: bus.store,
+      voice: ''
     }
   },
-  // components: {
-  //   Voice
-  // },
+  components: {
+    Voice
+  },
   computed: {
     showRomaji () {
       return bus.store.settings.showRomaji
@@ -39,13 +38,12 @@ export default {
     searchUrl () {
       return `http://jisho.org/search/${this.store.card.word}`
     }
+  },
+  methods: {
+    playVoice () {
+      this.$refs.voiceRef.play()
+    }
   }
-  // ,
-  // methods: {
-  //   playVoice () {
-  //     this.$refs.voiceRef.play()
-  //   }
-  // }
 }
 </script>
 
@@ -58,12 +56,17 @@ export default {
   font-size: 2rem;
   text-align: center;
   width: 80%;
+  .meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .hiragana, .romaji {
     margin: 0;
   }
-/* .hiragana {
+  .hiragana {
     cursor: pointer;
-  } */
+  }
   .romaji {
     opacity: 0;
     font-size: .8em;
@@ -79,14 +82,14 @@ export default {
   .meaning {
     max-width: 80%;
     margin: 1em auto;
-    font-weight: 100;
+    font-weight: 300;
   }
   .level {
     display: inline-block;
     padding: 0 1em;
     border-radius: .15em;
     font-size: .8em;
-    font-weight: 100;
+    font-weight: 300;
     color: var(--white);
     background: var(--inkBlue);
     .moon & {

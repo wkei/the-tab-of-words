@@ -7,7 +7,10 @@
 </template>
 
 <script>
-const videoSourceHost = 'http://www.bing.com/translator/api/language/Speak?locale=ja-JP&gender=female&media=audio/mp3&text='
+// const videoSourceHost = 'http://www.bing.com/translator/api/language/Speak?locale=ja-JP&gender=female&media=audio/mp3&text='
+
+// const videoSourceHost = 'https://dict.youdao.com/dictvoice?le=jap&audio='
+const videoSourceHost = 'https://fanyi.baidu.com/gettts?lan=jp&spd=3&source=web&text='
 
 export default {
   props: ['word'],

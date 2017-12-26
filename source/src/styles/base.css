@@ -34,7 +34,9 @@ html, body {
 }
 
 a {
+  outline: none;
   text-decoration: none;
+  border-bottom: 1px dotted transparent;
   .sunrise & {
     color: var(--inkBlue);
   }
@@ -43,6 +45,9 @@ a {
   }
   .moon & {
     color: var(--grey);
+  }
+  &:hover {
+    border-bottom: 1px dotted;
   }
 }
 
@@ -65,14 +70,24 @@ button {
   outline: none;
   cursor: pointer;
   line-height: 1;
+  transition: all .3s;
   .sunrise & {
-    color: var(--inkBlue);
-  }
-  .sunset & {
-    color: var(--green);
+    color: var(--cyan);
+    &:hover {
+      color: var(--inkBlue);
+    }
   }
   .moon & {
-    color: var(--grey);
+    color: var(--silver);
+    &:hover {
+      color: var(--white);
+    }
+  }
+  .sunset & {
+    color: var(--lightGreen);
+    &:hover {
+      color: var(--green);
+    }
   }
 }
 .fade-enter-active, .fade-leave-active {

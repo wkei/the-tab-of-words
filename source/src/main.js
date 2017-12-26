@@ -8,6 +8,8 @@ Vue.config.productionTip = false
 
 document.documentElement.classList.add(bus.store.settings.fontSize)
 document.documentElement.classList.add(bus.store.settings.theme)
+document.body.classList.add(bus.store.settings.fontSize)
+document.body.classList.add(bus.store.settings.theme)
 
 /* eslint-disable no-new */
 new Vue({

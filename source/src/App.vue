@@ -40,10 +40,14 @@ export default {
     fontSize (val, prevVal) {
       document.documentElement.classList.remove(prevVal)
       document.documentElement.classList.add(val)
+      document.body.classList.remove(prevVal)
+      document.body.classList.add(val)
     },
     theme (val, prevVal) {
       document.documentElement.classList.remove(prevVal)
       document.documentElement.classList.add(val)
+      document.body.classList.remove(prevVal)
+      document.body.classList.add(val)
     }
   },
   created () {

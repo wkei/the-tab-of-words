@@ -11,8 +11,7 @@
               </h3>
               <span class='level'>N{{ item.level }}</span>
               <p class='spelling'>
-                <!-- <span class='hiragana' @click='playVoice(item.word)'>{{ item.hiragana || item.word }}</span> -->
-                <span class='hiragana'>{{ item.hiragana || item.word }}</span>
+                <a class='hiragana' @click='playVoice(item.word)'>{{ item.hiragana || item.word }}</a>
                 <span class='romaji' :class='{ show: showRomaji }'>{{ item.romaji }}</span>
               </p>
               <p class='meaning'>{{ item.meaning }}</p>
@@ -23,14 +22,14 @@
       </transition>
     </main>
     <Settings />
-    <!-- <Voice :word='wordToPlay' ref='voiceRef'/> -->
+    <Voice :word='wordToPlay' ref='voiceRef'/>
   </div>
 </template>
 
 <script>
 import bus from '@/utils/bus'
 import Settings from '@/components/Settings'
-// import Voice from '@/components/Voice'
+import Voice from '@/components/Voice'
 
 export default {
   data () {
@@ -40,9 +39,8 @@ export default {
     }
   },
   components: {
-    Settings
-    // ,
-    // Voice
+    Settings,
+    Voice
   },
   computed: {
     showRomaji () {
@@ -63,12 +61,11 @@ export default {
     },
     unhide (item) {
       bus.unhide(item)
+    },
+    playVoice (word) {
+      this.wordToPlay = word
+      this.$refs.voiceRef.play()
     }
-    // ,
-    // playVoice (word) {
-    //   this.wordToPlay = word
-    //   this.$refs.voiceRef.play()
-    // }
   }
 }
 </script>
@@ -144,7 +141,7 @@ export default {
     margin: .5em 0 0;
     .hiragana {
       margin-right: .5em;
-      /*cursor: pointer;*/
+      cursor: pointer;
     }
     .romaji {
       opacity: 0;
@@ -164,15 +161,9 @@ export default {
     right: .75em;
     bottom: .7em;
     padding: .7em;
-    color: color(var(--cyan) a(80%));
     line-height: 0;
     user-select: none;
-    .moon & {
-      color: color(var(--silver) a(80%));
-    }
-    .sunset & {
-      color: color(var(--lightGreen) a(80%));
-    }
+    opacity: .8;
   }
   .empty {
     position: fixed;

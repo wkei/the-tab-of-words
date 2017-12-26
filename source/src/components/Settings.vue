@@ -54,6 +54,9 @@ export default {
   text-align: right;
   font-weight: 100;
   user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   a {
     color: color(var(--cyan) a(80%));
     .sunset & {
@@ -68,7 +71,7 @@ export default {
     margin-top: .5em;
   }
   .btn {
-    display: block;
+    display: inline-block;
     margin-bottom: .5em;
     transition: color .3s;
     &.active {

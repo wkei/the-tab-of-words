@@ -1,5 +1,5 @@
 module.exports = {
-  font: 'Avenir, Helvetica, Ubuntu, "Segoe UI", "Source Han Sans", "Source Han Sans JP", "Hiragino Sans", "WenQuanYi Micro Hei", "Microsoft Yahei", Arial, sans-serif',
+  font: 'Avenir, Ubuntu, "Helvetica Neue", "Source Han Sans", "Source Han Sans JP", sans-serif',
   fontSerif: '"Source Han Serif", "Source Han Serif JP", "MS Mincho", "Microsoft Yahei", "Times New Roman", serif',
   inkBlue: '#2c3e50',
   darkInk: 'rgb(43, 54, 64)',

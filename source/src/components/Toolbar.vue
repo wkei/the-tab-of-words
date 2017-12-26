@@ -71,25 +71,19 @@ export default {
   .btn {
     padding: 0;
     margin-left: .8em;
-    color: var(--cyan);
     font-family: var(--fontSerif);
-    transition: color .3s, opacity .3s;
-    &.show {
-      color: var(--inkBlue);
-    }
     &.hide {
       opacity: 0;
       visibility: hidden;
     }
-    .moon & {
-      color: var(--silver);
-      &.show {
+    &.show {
+      .sunrise & {
+        color: var(--inkBlue);
+      }
+      .moon & {
         color: var(--white);
       }
-    }
-    .sunset & {
-      color: var(--lightGreen);
-      &.show {
+      .sunset & {
         color: var(--green);
       }
     }

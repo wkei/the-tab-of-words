@@ -27,6 +27,9 @@ A minimal Chrome / Firefox extension to help you learn Japanese words in each ne
 - `1.4.0`
   + Fixed UI style
   + Added voice feature
+- `1.5.0`
+  + Update Vue Framework
+  + Fixed Firefox `unsafe-eval` warning
 
 ## TODO
 

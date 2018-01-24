@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js && rm -rf ../the-tab-of-words.zip && zip -r ../the-tab-of-words.zip ../the-tab-of-words"
+    "build": "node build/build.js"
   },
   "dependencies": {
     "lodash": "^4.17.4",

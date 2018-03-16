@@ -1,6 +1,6 @@
 {
   "name": "the-tab-of-words",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "A minimal Chrome / Firefox extension to help you learn Japanese words in each new tab.",
   "author": "kei <yqw.kei@gmail.com>",
   "private": true,

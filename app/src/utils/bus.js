@@ -72,6 +72,10 @@ const bus = new Vue({
       this.store.settings.showRomaji = !this.store.settings.showRomaji
       local.update(this.store)
     },
+    toggleMeaning () {
+      this.store.settings.showMeaning = !this.store.settings.showMeaning
+      local.update(this.store)
+    },
     toggleFontSize () {
       this.store.settings.fontSize = getNextArrEl(this.store.settings.fontSize, FONT_SIZES)
       local.update(this.store)

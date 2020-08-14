@@ -19,6 +19,12 @@
       帳
     </button>
     <button
+      :class='{ btn: true, show: store.showBook }'
+      @click='toggleMeaning'
+    >
+      英
+    </button>
+    <button
       class='btn'
       @click='changeTheme'
     >
@@ -53,6 +59,7 @@ export default {
     },
     changeLevel: bus.changeLevel,
     toggleBook: bus.toggleBook,
+    toggleMeaning: bus.toggleMeaning,
     changeTheme: bus.changeTheme
   }
 }

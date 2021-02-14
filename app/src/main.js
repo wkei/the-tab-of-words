@@ -17,4 +17,4 @@ new Vue({
 
 console.log('// Signed in Chrome / Firefox Account to sync your settings.')
 console.log('// You can press SPACEBAR / ENTER to get another random word.')
-console.log('// Source code is on https://github.com/keiww/the-tab-of-words')
+console.log('// Source code is on https://github.com/wkei/the-tab-of-words')

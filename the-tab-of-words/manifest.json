@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "言葉 の Tab",
+  "description": "A minimal Chrome / Firefox extension to help you learn Japanese words in each new tab.",
+  "version": "1.5.3",
+  "author": "Kei",
+  "chrome_url_overrides": {
+    "newtab": "app/index.html"
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "applications": {
+    "gecko": {
+      "id": "{87cdf9d5-32e6-4adc-81e2-30ecd6953ad9}",
+      "strict_min_version": "53.0"
+    }
+  }
+}

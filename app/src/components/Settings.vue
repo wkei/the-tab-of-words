@@ -15,8 +15,8 @@
     >
       romaji
     </a>
-    <a class='source' target='_blank' href='http://www.tanos.co.uk/jlpt/'>@datasource</a>
-    <a class='source' target='_blank' href='http://the-tab-of-words.wkei.github.io/'>@homepage</a>
+    <a class='source' target='_blank' href='https://www.tanos.co.uk/jlpt/'>@datasource</a>
+    <a class='source' target='_blank' href='https://wkei.github.io/the-tab-of-words/'>@homepage</a>
   </div>
 </template>
 

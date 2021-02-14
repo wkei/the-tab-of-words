@@ -42,4 +42,4 @@ A minimal Chrome / Firefox extension to help you learn Japanese words in each ne
 
 ## CREDIT
 
-Thanks [Jonathan Waller](http://www.tanos.co.uk/jlpt/) so much for providing his JLPT words data.
+Thanks [Jonathan Waller](https://www.tanos.co.uk/jlpt/) so much for providing his JLPT words data.

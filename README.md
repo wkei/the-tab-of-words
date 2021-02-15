@@ -1,3 +1,7 @@
+# New version is WIP
+
+---
+
 # 言葉 の Tab
 
 A minimal Chrome / Firefox extension to help you learn Japanese words in each new tab.

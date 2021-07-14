@@ -1,5 +1,7 @@
 # New version is WIP
 
+https://www.figma.com/file/yTnWqHN4Nh8GIj7le52cKk/Tab-of-Words?node-id=196%3A692
+
 ---
 
 # 言葉 の Tab

@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply h-screen w-screen overflow-hidden text-stone-800 antialiased;
+}
+
+#root {
+  @apply h-full;
+}
+
+@layer utilities {
+  .absolute-center {
+    @apply absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%];
+  }
+
+  .link {
+    @apply text-stone-800 underline transition-colors;
+  }
+}

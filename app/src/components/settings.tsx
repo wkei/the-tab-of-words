@@ -161,7 +161,7 @@ function Options() {
 function Info() {
   const links = [
     // ['Product Page', ''],
-    ['Source Code', 'https://github.com/wkei/the-tab-of-words'],
+    ['Source Code', 'https://github.com/wkei/the-tab-of-words/tree/main'],
     [
       'Data Source',
       'https://github.com/wkei/jlpt-vocab-api/tree/main/data-source',

@@ -9,6 +9,7 @@ import Settings from './components/settings'
 import WordCard from './components/word'
 import { viewAtom, wordsAtom } from './context/store'
 import { useFetchWordsWithCache } from './utils/api'
+import RegisterServiceWorkder from './sw/RegisterSW'
 
 function MainView() {
   const [view] = useAtom(viewAtom)
@@ -39,11 +40,7 @@ function App() {
     if (data) setWords(data)
   }, [data])
 
-  if (!connected) {
-    return null
-  }
-
-  return (
+  const app = (
     <>
       <FadeContainer show={loading}>
         <code className="absolute-center text-stone-400">Initializing...</code>
@@ -60,6 +57,13 @@ function App() {
           Try to fresh the page
         </code>
       </FadeContainer>
+    </>
+  )
+
+  return (
+    <>
+      {connected && app}
+      <RegisterServiceWorkder />
     </>
   )
 }

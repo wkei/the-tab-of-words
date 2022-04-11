@@ -14,7 +14,7 @@
                 <a class='hiragana' @click='playVoice(item.word)'>{{ item.hiragana || item.word }}</a>
                 <span class='romaji' :class='{ show: showRomaji }'>{{ item.romaji }}</span>
               </p>
-              <p class='meaning'>{{ item.meaning }}</p>
+              <span class='meaning' :class='{ show: showMeaning }'>{{ item.meaning }}</span>
               <button class='btn-del' @click='unhide(item)'>×</button>
             </div>
           </li>
@@ -45,6 +45,9 @@ export default {
   computed: {
     showRomaji () {
       return this.store.settings.showRomaji
+    },
+    showMeaning () {
+      return this.store.settings.showMeaning
     },
     hiddenCards () {
       const { hides, words } = this.store
@@ -154,7 +157,12 @@ export default {
     }
   }
   .meaning {
+    opacity: 0;
+    transition: opacity .3s;
     margin: .5em 0 0;
+    &.show {
+      opacity: 1;
+    }
   }
   .btn-del {
     position: absolute;

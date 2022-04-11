@@ -18,6 +18,7 @@ export const initStore = {
   hides: [],
   settings: {
     showRomaji: false,
+    showMeaning: true,
     fontSize: 'm', // 's, m, l'
     theme: 'sunrise' // 'sunrise', 'sunset', 'moon'
   }

@@ -8,7 +8,9 @@
     <h1 class='word'>
       <a :href='searchUrl' target='_blank'>{{card.word}}</a>
     </h1>
-    <p class='meaning'>{{card.meaning}}</p>
+    <div class='meaning' :class='{ show: showMeaning }'>
+      {{card.meaning}}
+    </div>
     <span class='level'>N{{card.level}}</span>
     <Voice :word='card.word' ref='voiceRef' />
   </div>
@@ -31,6 +33,9 @@ export default {
   computed: {
     showRomaji () {
       return bus.store.settings.showRomaji
+    },
+    showMeaning () {
+      return bus.store.settings.showMeaning
     },
     card () {
       return this.store.card
@@ -80,9 +85,14 @@ export default {
     margin: .5em 0;
   }
   .meaning {
+    opacity: 0;
     max-width: 80%;
     margin: 1em auto;
     font-weight: 300;
+    transition: opacity .3s;
+    &.show {
+      opacity: 1;
+    }
   }
   .level {
     display: inline-block;

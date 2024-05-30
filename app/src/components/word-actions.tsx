@@ -41,16 +41,16 @@ export default function WordActions({ word, del, size }: WordActionsProps) {
       }`}
     >
       <LevelBadge level={word.level} size={size} />
-      {!del && <IconButton size={size} icon={CheckIcon} onClick={learn} />}
+      {/* {!del && <IconButton size={size} icon={CheckIcon} onClick={learn} />} */}
       <IconButton size={size} icon={VolumeUpIcon} onClick={play} />
       <IconButton size={size} icon={SearchIcon} link={dictUrl} blank />
-      {del && (
+      {/* {del && (
         <IconButton
           size={size}
           icon={XIcon}
           onClick={() => removeLearned(word.uuid)}
         />
-      )}
+      )} */}
     </div>
   )
 }

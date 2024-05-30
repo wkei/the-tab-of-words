@@ -15,11 +15,11 @@ export default function Header() {
       {view !== 'word' && (
         <IconButton icon={ArrowSmLeftIcon} onClick={() => changeView('word')} />
       )}
-      <IconButton
+      {/* <IconButton
         active={view === 'book'}
         icon={BookOpenIcon}
         onClick={() => changeView('book')}
-      />
+      /> */}
       <IconButton
         active={view === 'settings'}
         icon={CogIcon}

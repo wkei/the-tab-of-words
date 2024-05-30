@@ -42,7 +42,7 @@ function ModeSwitcher() {
       const newMode = e.target.value as Mode
       if (newMode === 'ichigoichie' && metWords.length) {
         const confirmed = confirm(
-          'Do you want to reset the data of previous Ichigo Ichie?'
+          'Do you want to reset the data of previous Ichigo Ichie?',
         )
         if (confirmed) {
           setMetWords([])
@@ -187,7 +187,7 @@ export default function Settings() {
     <Container>
       <h1 className="mb-12 text-3xl font-semibold">Settings</h1>
       <div className="divide-y">
-        <ModeSwitcher />
+        {/* <ModeSwitcher /> */}
 
         <Levels />
 

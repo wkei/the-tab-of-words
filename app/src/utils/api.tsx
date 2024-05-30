@@ -9,16 +9,16 @@ const fetcher = (url: string) => fetch(url).then((r) => r.json())
 export function useFetchRandomWord() {
   const { data, error } = useSWRImmutable<Word>(
     `${API_ENDPOINT}/words/random`,
-    fetcher
+    fetcher,
   )
   return { data, error }
 }
 
 export function getDictionaryUrl(content: string) {
   const jisho = 'https://jisho.org/search/'
-  const japanDict = 'https://www.japandict.com/'
+  // const japanDict = 'https://www.japandict.com/'
 
-  return `${japanDict}${content}`
+  return `${jisho}${content}`
 }
 
 export function getAudioUrl(content: string) {

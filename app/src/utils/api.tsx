@@ -22,11 +22,11 @@ export function getDictionaryUrl(content: string) {
 }
 
 export function getAudioUrl(content: string) {
-  const naver =
-    'https://ja.dict.naver.com/api/nvoice?speaker=yuri&service=dictionary&speech_fmt=mp3&text='
+  // const naver =
+  // 'https://ja.dict.naver.com/api/nvoice?speaker=yuri&service=dictionary&speech_fmt=mp3&text='
   const youdao = 'https://dict.youdao.com/dictvoice?le=jap&audio='
 
-  return `${naver}${content}`
+  return `${youdao}${content}`
 }
 
 export function useFetchWordsWithCache() {

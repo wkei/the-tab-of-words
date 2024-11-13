@@ -16,7 +16,7 @@ export default function useAudio(content: string) {
   }
 
   const Audio = (
-    <video key={url} ref={audioRef} hidden>
+    <video key={url} ref={audioRef} hidden preload="none">
       <source src={url} type="audio/mp3" />
     </video>
   )

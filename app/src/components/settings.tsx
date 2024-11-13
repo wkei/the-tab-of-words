@@ -166,6 +166,7 @@ function Info() {
       'Data Source',
       'https://github.com/wkei/jlpt-vocab-api/tree/main/data-source',
     ],
+    ['Author', 'https://keibungen.com/'],
   ]
   return (
     <FormSection title="About">

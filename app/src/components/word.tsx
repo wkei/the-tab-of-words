@@ -34,7 +34,7 @@ export default function Word() {
   return (
     <div className="absolute left-1/2 top-1/2 w-[80vw] translate-x-[-50%] translate-y-[-60%] text-center text-base md:text-xl">
       <Furigana word={randomWord} />
-      <h1 className="my-8 font-serif font-semibold" style={wordStyle}>
+      <h1 className="my-8 font-serif font-bold" style={wordStyle}>
         {randomWord.word}
       </h1>
       <p>{randomWord.meaning}</p>
